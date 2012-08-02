@@ -5,9 +5,14 @@ class About extends MX_Controller {
 	/**
 	 * Index Page for this controller.
 	 */
-	public function index()
-	{
-		$this->load->view('about/index');
+	public function index() {
+		$data = array();
+		
+		$this->template
+		   ->set_partial('metadata', 'partials/metadata')
+		   ->set_partial('header', 'partials/header')
+		   ->set_partial('footer', 'partials/footer')
+		   ->build('index', $data);
 	}
 }
 

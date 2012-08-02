@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$route['default_controller'] = "post";
+$route['default_controller'] = "about";
 $route['404_override'] = '';
 
 $route['new-post'] = 'post/create';

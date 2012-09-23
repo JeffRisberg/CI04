@@ -4,7 +4,7 @@
  * @author Jeff Risberg
  * @since 2012
  */
-class Comment_model extends CI_Model {
+class Comments_model extends CI_Model {
 
 	function get($id) {
 		$this->db->where('id', $id);

@@ -16,7 +16,11 @@ class Users extends MX_Controller {
 		$data['users'] = $this->user_model->get_all();
 		$data['title'] = 'Users List';
 
-		$this->load->view('users/index', $data);
+		$this->template
+		->set_partial('metadata', 'partials/metadata')
+		->set_partial('header', 'partials/header')
+		->set_partial('footer', 'partials/footer')
+		->build('index', $data);
 	}
 
 	public function view($id)	{
@@ -28,7 +32,11 @@ class Users extends MX_Controller {
 
 		$data['title'] = 'User';
 
-		$this->load->view('users/view', $data);
+		$this->template
+		->set_partial('metadata', 'partials/metadata')
+		->set_partial('header', 'partials/header')
+		->set_partial('footer', 'partials/footer')
+		->build('view', $data);
 	}
 
 	public function edit($id) {

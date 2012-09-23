@@ -4,13 +4,13 @@
  * @author Jeff Risberg
  * @since 2012
  */
-class Post extends MX_Controller {
+class Posts extends MX_Controller {
 
 	function __construct() {
 		parent::__construct();
 		
-		$this->load->model('post_model');
-		$this->load->model('comment_model');
+		$this->load->model('posts_model');
+		$this->load->model('comments_model');
 	}
 		
 	// show a list of posts
@@ -19,9 +19,13 @@ class Post extends MX_Controller {
 		
 		$data['title'] = "Home";
 		
-		$data['posts'] = $this->post_model->get_all();
-		
-		$this->template->build('post/index', $data);
+		$data['posts'] = $this->posts_model->get_all();
+	
+		$this->template
+		->set_partial('metadata', 'partials/metadata')
+		->set_partial('header', 'partials/header')
+		->set_partial('footer', 'partials/footer')
+		->build('index', $data);
 	}
 	
 	// view one specific post and its comments
@@ -34,7 +38,11 @@ class Post extends MX_Controller {
 		$data['post_id'] = $id;
 		$data['total_comments'] = $this->post_model->total_comments($id);
 		
-		$this->load->view('post/view', $data);
+		$this->template
+		->set_partial('metadata', 'partials/metadata')
+		->set_partial('header', 'partials/header')
+		->set_partial('footer', 'partials/footer')
+		->build('view', $data);
 	}
 	
 	public function saveComment($post_id)	{
@@ -132,4 +140,4 @@ class Post extends MX_Controller {
 }
 
 /* End of file post.php */
-/* Location: ./application/controllers/post.php */
+/* Location: ./modules/posts/controllers/posts.php */

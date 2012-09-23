@@ -4,7 +4,7 @@
  * @author Jeff Risberg
  * @since 2012
  */
-class Post_model extends CI_Model {
+class Posts_model extends CI_Model {
 
 	function get($id) {
 		$this->db->where('id', $id);
